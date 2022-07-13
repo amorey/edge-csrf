@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import * as util from '../util';
+import * as util from '../src/util';
 
 describe('createSecret', () => {
   it('outputs object of type Uint8Array', () => {
@@ -70,7 +70,7 @@ describe('getTokenString', () => {
         'x-csrf-token': 'my-token'
       }
     });
-    const tokenStr = await util.getTokenString(request, null);
+    const tokenStr = await util.getTokenString(request);
     expect(tokenStr).toEqual('my-token');
   });
 
@@ -80,7 +80,7 @@ describe('getTokenString', () => {
       headers: {'content-type': 'application/x-www-form-urlencoded'},
       body: 'a=1&csrf_token=my-token'
     });
-    const tokenStr = await util.getTokenString(request, null);
+    const tokenStr = await util.getTokenString(request);
     expect(tokenStr).toEqual('my-token');
   });
   
@@ -90,7 +90,7 @@ describe('getTokenString', () => {
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({'csrf_token': 'my-token'})
     });
-    const tokenStr = await util.getTokenString(request, null);
+    const tokenStr = await util.getTokenString(request);
     expect(tokenStr).toEqual('my-token');
   });
 
@@ -100,7 +100,7 @@ describe('getTokenString', () => {
       headers: {'content-type': 'application/ld+json'},
       body: JSON.stringify({'csrf_token': 'my-token'})
     });
-    const tokenStr = await util.getTokenString(request, null);
+    const tokenStr = await util.getTokenString(request);
     expect(tokenStr).toEqual('my-token');
   });
 
@@ -110,7 +110,7 @@ describe('getTokenString', () => {
       headers: {'content-type': 'xxx'},
       body: 'my-token'
     });
-    const tokenStr = await util.getTokenString(request, null);
+    const tokenStr = await util.getTokenString(request);
     expect(tokenStr).toEqual('my-token');
   });
 
@@ -119,7 +119,7 @@ describe('getTokenString', () => {
       method: 'POST',
       body: 'my-token'
     });
-    const tokenStr = await util.getTokenString(request, null);
+    const tokenStr = await util.getTokenString(request);
     expect(tokenStr).toEqual('my-token');
   });
 
