@@ -6,11 +6,10 @@
   "license": "MIT",
   "repository": "amorey/edge-csrf",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "config.js",
-    "index.js",
-    "util.js"
+    "/dist"
   ],
   "scripts": {
     "bench": "node --experimental-specifier-resolution=node",
