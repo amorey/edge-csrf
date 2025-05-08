@@ -1,3 +1,9 @@
+> [!CAUTION]
+> This library implements the Naive Double-Submit Cookie Pattern which is vulnerable to sub-domain attacks (when an attacker is able to set cookies for the the parent domain or other sub-domains). In order to prevent sub-domain attacks, the CSRF token must be tied to the user session which means it requires a tight integration with the session/authentication library. If your site isn't vulnerable to sub-domain attacks then you can continue to use this library but if it is, then you should consider a CSRF solution that is integrated with your auth system.
+>
+> Longer term, the next step for this library is to provide plugins for authentication libraries and/or to encourge authentication plugin providers to use the library primitives in `packages/core`. Unfortunately I have my hands full at the moment with another project (https://github.com/kubetail-org/kubetail) so I would like to hand this project off to another maintainer. If you're interested please let me know!
+
+
 # Edge-CSRF
 
 Edge-CSRF is a CSRF protection library for JavaScript that runs on the [edge runtime](https://edge-runtime.vercel.app/).
