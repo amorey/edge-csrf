@@ -21,7 +21,7 @@ Next, create a middleware file (`middleware.ts`) for your project and add the Ed
 
 import { createCsrfMiddleware } from '@edge-csrf/nextjs';
 
-// initalize csrf protection middleware
+// initialize csrf protection middleware
 const csrfMiddleware = createCsrfMiddleware({
   cookie: {
     secure: process.env.NODE_ENV === 'production',
